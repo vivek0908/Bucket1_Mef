@@ -51,7 +51,6 @@ namespace LearnMEF.ViewModel
             set
             {
                 myresult = value;
-                mod.Result = myresult;
                 OnPropertyChanged("Result");
             }
         }
@@ -69,7 +68,7 @@ namespace LearnMEF.ViewModel
 
         public CalculateCommand mycommand;
 
-        public ICommand Command
+        public ICommand CalculateCommand
         {
             get { return mycommand; }
             
@@ -77,9 +76,9 @@ namespace LearnMEF.ViewModel
 
         public CalculateViewModel()
         {
+            Operators = new ObservableCollection<string>() { "Add", "Sub" };
             mycommand = new CalculateCommand();
             CalculateModel.Instance.ModelUpdated += OnModelUpdated;
-            Operators = new ObservableCollection<string>() { "Add", "Sub" };
         }
 
         private void OnModelUpdated(object sender, EventArgs e)
