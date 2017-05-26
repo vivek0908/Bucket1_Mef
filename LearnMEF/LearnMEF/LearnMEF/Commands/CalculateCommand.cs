@@ -13,16 +13,17 @@ namespace LearnMEF.Commands
 {
     public class CalculateCommand:ICommand
     {
-        public CalculateCommand(Func<> )
-        {
+        //public CalculateCommand(Func<> )
+        //{
               
-        }
+        //}
         public delegate bool canExecuteHandler();
 
         public bool CanExecute(object parameter)
         {
-            canExecuteHandler objdel=new canExecuteHandler();
-            objdel.Invoke();
+            //canExecuteHandler objdel=new canExecuteHandler();
+            //objdel.Invoke();
+            return true;
         }
 
         public event EventHandler CanExecuteChanged;

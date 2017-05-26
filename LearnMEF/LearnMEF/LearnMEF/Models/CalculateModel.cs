@@ -53,7 +53,7 @@ namespace LearnMEF.Models
             {
                 lock(obj)
                 {
-                    if(myInstance!=null)
+                    if(myInstance==null)
                     {
                         myInstance = new CalculateModel();
                     }
