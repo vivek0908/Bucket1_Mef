@@ -9,13 +9,34 @@
     </Window.DataContext>
     <Grid>
         <Label Name="Label_Num1" Content="First Number" Margin="0,0,430,293" ></Label>
-        <TextBox Name="TextBox_Input1" Margin="103,0,311.4,292.8" BorderBrush="Black" Text="{Binding FirstNumber}"></TextBox>
+        <TextBox Name="TextBox_Input1" Margin="103,0,311.4,292.8" BorderBrush="Black" Text="{Binding FirstNumber}">
+           
+        </TextBox>
         <Label x:Name="Label_Num2" Content="Second Number" Margin="0,47,419,246" />
         <TextBox Name="TextBox_Input2" Margin="103,50,311.4,235.8" BorderBrush="Black" Text="{Binding Secondnumber}"></TextBox>
         <Label x:Name="Label_Result" Content="Result" Margin="329,281,111,12" IsEnabled="False" />
         <TextBox Name="TextBox_Input3" Margin="411,283,3,12" BorderBrush="Black" Text="{Binding Result}"></TextBox>
         <Label x:Name="Label_Operator" Content="Operator" Margin="0,99,440,194" IsEnabled="False" />
         <ComboBox Name="ComboBox_Operators" ItemsSource="{Binding Operators}" Margin="103,99,311,194"></ComboBox>
-        <Button Name="Button_Calculate" Content="Calculate" Margin="103,148,311,141" Command="{Binding CalculateCommand}" CommandParameter="{Binding ElementName=ComboBox_Operators, Path=SelectedItem}"></Button>
+        <Button Name="Button_Calculate" Content="Calculate" Margin="103,148,311.4,125.8" Command="{Binding CalculateCommand}" CommandParameter="{Binding ElementName=ComboBox_Operators, Path=SelectedItem}">
+            <Button.Template>
+                <ControlTemplate TargetType="Button" >
+                    <Grid>
+                    <Ellipse Height="40" Width="80">
+                        <Ellipse.Fill>
+                            <LinearGradientBrush StartPoint="0,0.5" EndPoint="0.5,0.9"  >
+                                <GradientStop Color="Azure" Offset="0.2"/>
+                                <GradientStop Color="Blue" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Ellipse.Fill>
+                        <Ellipse.Effect >
+                            <DropShadowEffect Color="Black" ></DropShadowEffect>
+                        </Ellipse.Effect>
+                    </Ellipse>
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
     </Grid>
 </Window>
