@@ -1,46 +1,41 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Documents;
 using System.Windows.Input;
-
-using LearnMEF.Models;
 
 
 namespace LearnMEF.Commands
 {
     public class CalculateCommand:ICommand
     {
-        //public CalculateCommand(Func<> )
-        //{
-              
-        //}
+        private Action<object> myExecute;
+        Func<bool> myCanExecute;
+
+        public CalculateCommand(Action<object> execute, Func<bool> canExecute)
+        {
+            myExecute = execute;
+            myCanExecute = canExecute;
+        }
+
         public delegate bool canExecuteHandler();
 
-        public bool CanExecute(object parameter)
+        bool ICommand.CanExecute(object parameter)
         {
-            //canExecuteHandler objdel=new canExecuteHandler();
-            //objdel.Invoke();
-            return true;
+            if(myCanExecute != null)
+            {
+                return myCanExecute();
+            }
+            if(myExecute != null)
+            {
+                return true;
+            }
+            return false;
         }
 
+        // Do not know when this can be needed
         public event EventHandler CanExecuteChanged;
 
-        public void Execute(object parameter)
+        void ICommand.Execute(object parameter)
         {
-            var op=parameter.ToString();
-            if (op.Equals("Add"))
-            {
-               CalculateModel.Instance.Result= CalculateModel.Instance.FirstNumber + CalculateModel.Instance.Secondnumber;
-            }
-            else if (op.Equals("Sub"))
-            {
-                CalculateModel.Instance.Result = CalculateModel.Instance.FirstNumber - CalculateModel.Instance.Secondnumber;
-            }
-        }
-
-         
+            myExecute?.Invoke(parameter);
+        }         
     }
 }

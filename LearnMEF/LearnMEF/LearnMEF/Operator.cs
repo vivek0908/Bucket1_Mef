@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.ComponentModel.Composition;
-using System.Threading.Tasks;
-using LearnMEF;
+﻿using System.ComponentModel.Composition;
 
 namespace LearnMEF
 {

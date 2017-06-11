@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LearnMEF.Models
 {
+    // Animesh: Cann't say if this class is required
     public class CalculateModel
     {
         private static CalculateModel myInstance;

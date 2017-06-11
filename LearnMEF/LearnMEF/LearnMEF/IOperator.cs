@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LearnMEF
 {
@@ -26,11 +22,11 @@ namespace LearnMEF
 
         private bool IsDataTypeAllowed(DT data)
         {
-            if(data.GetType() != typeof(int) || data.GetType() != typeof(float) || data.GetType() != typeof(long) || data.GetType() != typeof(double))
+            if(data.GetType() == typeof(int) || data.GetType() == typeof(float) || data.GetType() == typeof(long) || data.GetType() == typeof(double))
             {
-                return false;
+                return true;
             }
-            return true;
+            return false;
         }
 
         public string Name
